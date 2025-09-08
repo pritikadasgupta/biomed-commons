@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "biomed-commons: common data utilities for biomedical & clinical data science"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Dasgupta
+    given-names: "Rose (Pritika)"
+    orcid: "https://orcid.org/0000-0002-6199-2352"
+    email: "pritika.dasgupta@gmail.com"
+repository-code: "https://github.com/pritikadasgupta/biomed-commons"
+keywords:
+  - biomedical informatics
+  - clinical data science
+  - data cleaning
+  - statistics
+  - R
+  - Python
+  - Julia
+  - SAS
+license: MIT
+version: "0.1.0"
+date-released: "2025-09-08"

@@ -1,0 +1,14 @@
+# File: julia/Project.toml
+# Author: Rose (Pritika) Dasgupta
+# Description: Julia test skeleton
+#
+# Style:
+
+name = "BiomedCommons"
+uuid = "7c5f2c2f-aaaa-4a2c-9a2a-000000000001"
+authors = ["Rose (Pritika) Dasgupta <pritika.dasgupta@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
