@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Rproj
+.Rbuildignore
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env/
+dist/
+build/
+
+# Julia
+.julia/
+Manifest.toml
+
+# general
+*.swp
+*.log
