@@ -1,0 +1,49 @@
+# .pre-commit-config.yaml
+# Install (macOS):  brew install pre-commit gitleaks
+#                   pipx install detect-secrets   # or: python3 -m pip install --user detect-secrets
+# Enable:          pre-commit install
+# Baseline:        detect-secrets scan --all-files > .secrets.baseline && git add .secrets.baseline
+
+repos:
+  # Core hygiene hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: check-added-large-files
+        args: ["--maxkb=2000"]
+
+  # detect-secrets (fast + baseline)
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args:
+          - "--baseline"
+          - ".secrets.baseline"
+          - "--fail-on-adhoc-strings"
+        exclude: |
+          (?x)^(
+            data/synthetic/|
+            .*/?\.ipynb_checkpoints/|
+            .*\.png$|.*\.jpg$|.*\.jpeg$|.*\.tiff$|.*\.pdf$
+          )$
+
+  # gitleaks (broad patterns; complements detect-secrets)
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        args:
+          - "protect"
+          - "--verbose"
+          - "--redact"
+          - "--config=.gitleaks.toml"
+        exclude: |
+          (?x)^(
+            data/synthetic/|
+            .*/?\.ipynb_checkpoints/|
+            .*\.png$|.*\.jpg$|.*\.jpeg$|.*\.tiff$|.*\.pdf$
+          )$

@@ -1,0 +1,14 @@
+title = "biomed-commons gitleaks config"
+
+[allowlist]
+description = "Ignore synthetic data and common VCS noise"
+paths = [
+  "data/synthetic/",
+  ".ipynb_checkpoints/",
+  "docs/assets/",
+]
+
+# Example: allow a fake test token format in fixtures (uncomment to use)
+# regexes = [
+#   '''(?m)^FAKE_API_KEY_[A-Z0-9]{8,32}$'''
+# ]
